@@ -43,6 +43,20 @@ class EmpleadoModel extends Conexion{
          }
     }
 
+    function modificarEmpleado($e){
+         try{
+             $para=$this->con->prepare("update empleado set nombre=?,id_dep=? where id_emp=?");
+             $para->bind_param('sss',$a,$b,$c); 
+             $a=$e->getNombre();
+             $b=$e->getId_dep();
+             $c=$e->Id_emp();     
+         }catch(Exception $e){
+             echo $e;
+         }
+         
+
+    }
+
 
 
 }
